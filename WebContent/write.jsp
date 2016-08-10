@@ -46,7 +46,7 @@
 </style>
 
 
-<title>Insert title here</title>
+<title>글 등록</title>
 </head>
 <body>
 <h2>글 등록</h2>
@@ -55,9 +55,9 @@
 <table>
 <tr><th>글 제목</td><td colspan="3"><input type="text" name="title" size="80"></td></tr>
 <tr><th>등록자</td> <td><input type="text" name="writer" size="30"></td>
-	<th>등록일</td> <td><input type="text" name="writer" size="30"></td></tr>
+	<th>등록일</td> <td><input type="text" name="writeDate" size="30"></td></tr>
 <tr><th>이미지</td><td colspan="3"><input type="file" name="file" size="60"></td></tr>
-<tr><td colspan="4"><textarea rows="20" cols="100"></textarea></td></tr>
+<tr><td colspan="4"><textarea rows="20" cols="100" name="content"></textarea></td></tr>
 </table>
 <table class="no-border">
 <tr class="no-border"><td class="no-border"colspan="5" height="20"></td></tr>
