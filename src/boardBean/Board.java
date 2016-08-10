@@ -7,7 +7,7 @@ public class Board implements java.io.Serializable{
 	private String modifier;
 	private String modifyDate;
 	private String image;
-	private String content;
+	private String explanation;
 	
 	public Board(){
 		
@@ -49,11 +49,11 @@ public class Board implements java.io.Serializable{
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String getContent() {
-		return content;
+	public String getExplanation() {
+		return explanation;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setExplanation(String explanation) {
+		this.explanation = explanation;
 	}
 	
 }
