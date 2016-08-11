@@ -22,7 +22,10 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy,java.util.*, java.io.*" %>
 	 String title = multi.getParameter("title");
 	 String writer = multi.getParameter("writer");
 	 String writeDate = multi.getParameter("writeDate");
-	 String content = multi.getParameter("content");%>
+	 String modifier = multi.getParameter("modifier");
+	 String modifyDate = multi.getParameter("modifyDate");
+	 String category = multi.getParameter("category");
+	 String explanation = multi.getParameter("explanation");%>
 	 
 	 <jsp:useBean id="boardMgr" class="boardBean.BoardMgr" scope="page"/>
 	 <%if(fileName == null) {%>
@@ -31,7 +34,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy,java.util.*, java.io.*" %>
 		history.back(-1);
 	</script>
 	<%} else {
-		boardMgr.insertBoard(title, writer, writeDate, fileName, content);
+		boardMgr.insertBoard(title, writer, writeDate, modifier, modifyDate, category, fileName, explanation);
 	%>
 	<script>
 		alert("등록이 완료되었습니다.");

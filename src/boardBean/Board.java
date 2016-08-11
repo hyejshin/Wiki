@@ -6,6 +6,7 @@ public class Board implements java.io.Serializable{
 	private String writeDate;
 	private String modifier;
 	private String modifyDate;
+	private String category;
 	private String image;
 	private String explanation;
 	
@@ -42,6 +43,12 @@ public class Board implements java.io.Serializable{
 	}
 	public void setModifyDate(String modifyDate) {
 		this.modifyDate = modifyDate;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getImage() {
 		return image;
