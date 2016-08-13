@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link rel="stylesheet" type="text/css" href="../CSS/viewStyle.css">
 
 <%@page import="DAO.BoardImpl" %>
 <%@page import="DTO.BoardBean" %>
@@ -31,7 +30,7 @@
 		margin-right: auto;
 	}
 	table, th, td{
-		border: 1px solid #848484;
+		border: 1px solid #A4A4A4;
 	}
 	.no-border{
 		border: 0px;
@@ -55,7 +54,7 @@
 <script language="javascript">
 function user(actionMode, idx){
 	if(actionMode == 'update'){
-		url = "/Wiki/BoardServlet?actionMode=UPDATE&idx="+idx;
+		url = "/Wiki/BoardServlet?actionMode=UPDATEVIEW&idx="+idx;
 	}else if(actionMode == 'delete'){
 		url = "/Wiki/BoardServlet?actionMode=DELETE&idx="+idx;
 	}else if(actionMode == 'list'){
@@ -77,6 +76,7 @@ BoardBean bean = (BoardBean)request.getAttribute("Bean"); %>
 <tr><th>글 제목</th><td colspan="3"><%=bean.getTitle()%></td></tr>
 <tr><th>등록자</th> <td width="230"><%=bean.getWriter()%></td> <th>등록일</th> <td><%=bean.getWriteDate()%></td></tr>
 <tr><th>수정자</th> <td width="230"><%=bean.getModifier()%></td> <th>최종수정일</th> <td><%=bean.getModifyDate()%></td></tr>
+<tr><th>카테고리</th><td colspan="3"><%=bean.getCategory()%></td></tr>
 <tr><td colspan="4"><div align="center"><img src="./"<%=bean.getImage()%> width="300" height="200"></div></td></tr>
 <tr><td colspan="4"><%=bean.getExplanation()%></td></tr>
 </table>
@@ -86,7 +86,7 @@ BoardBean bean = (BoardBean)request.getAttribute("Bean"); %>
 <tr class="no-border"><td class="no-border"colspan="5" height="20"></td></tr>
 <tr class="no-border"><td class="no-border"width="200"></td>
 		<td class="no-border"><input class="button" type="button" value="수정" onClick="user('update', <%=bean.getIdx()%>);"></td>
-		<td class="no-border" width="50"></td>
+		<td class="no-border"><input class="button" type="button" value="목록" onClick="user('list', <%=bean.getIdx()%>);"></td>
 		<td class="no-border"><input class="button" type="button" value="삭제" onClick="user('delete', <%=bean.getIdx()%>);"></td>
 		<td class="no-border" width="200"></td></tr>
 </table>

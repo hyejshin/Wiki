@@ -7,16 +7,37 @@
 <link rel="stylesheet" type="text/css" 	href="http://fonts.googleapis.com/earlyaccess/hanna.css">
 <link rel="stylesheet" type="text/css" 	href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 
+<%@include file="../top.jsp"%>
+
 <style type="text/css">
-	h2 {
+	#title {
+		margin-top: 100px;
 		font-family: 'hanna', sans-serif;
+		font-size: 60pt;
+	}
+	div {
 		text-align: center;
 	}
 </style>
 <title>Home</title>
 </head>
 <body>
-<h2>HOME</h2>
+<div id="title">Wiki <img src="./file_save/ibm_watson.png" width="150"></div> 
+<br><br>
+
+<form method="post" action="/Wiki/BoardServlet?actionMode=SEARCH">
+<div>
+<select>
+<option value="all">전체</option>
+<option value="title">제목</option>
+<option value="writer">작성자</option>
+<option value="category">카테고리</option>
+</select>
+<input type="text" name="keyword" size="60">
+<input type="submit" value="검색">
+</div>
+</form>
+
 </body>
 </html>
 

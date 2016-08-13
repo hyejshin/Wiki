@@ -70,7 +70,7 @@ public class BoardImpl implements Board{
             bean.setWriteDate(rs.getString("writeDate"));
             bean.setModifier(nvl(rs.getString("modifier")));
             bean.setModifyDate(nvl(rs.getString("modifyDate")));
-            bean.setImage(nvl(rs.getString("category")));
+            bean.setCategory(nvl(rs.getString("category")));
             bean.setImage(rs.getString("image"));
             bean.setExplanation(nvl(rs.getString("explanation")));
             
@@ -116,15 +116,16 @@ public class BoardImpl implements Board{
 
         try{
             conn = db.connect();
-            String sql = "update board set title=?, writer=?, writeDate=?, modifier=?, modifyDate=?, category=?, image=?, explanation=? where idx=?";
+            String sql = "update board set title=?, writer=?, writeDate=?, modifier=?, modifyDate=sysDate, category=?, image=?, explanation=? where idx=?";
             pstmt = conn.prepareStatement(sql);     
             pstmt.setString(1, bean.getTitle());
             pstmt.setString(2, bean.getWriter());
-            pstmt.setString(3, bean.getModifier());
-            pstmt.setString(4, bean.getModifyDate());
+            pstmt.setString(3, bean.getWriteDate());
+            pstmt.setString(4, bean.getModifier());
             pstmt.setString(5, bean.getCategory());
             pstmt.setString(6, bean.getImage());
-            pstmt.setString(7, bean.getExplanation());         
+            pstmt.setString(7, bean.getExplanation());
+            pstmt.setInt(8, bean.getIdx());
             res=pstmt.executeUpdate();
            
         }catch(SQLException se){

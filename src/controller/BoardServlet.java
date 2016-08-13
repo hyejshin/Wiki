@@ -68,6 +68,17 @@ public class BoardServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/BoardServlet?actionMode=LIST");
             rd.forward(request, response);
  
+        } else if (actionMode.equals("UPDATEVIEW")){
+        	
+        	BoardImpl bi = new BoardImpl();
+            int idx = Integer.parseInt(request.getParameter("idx"));
+           
+            BoardBean bean = bi.bSelect(idx);
+            request.setAttribute("Bean", bean);
+           
+            RequestDispatcher rd = request.getRequestDispatcher("/Board/update.jsp");
+            rd.forward(request, response);
+            
         } else if (actionMode.equals("UPDATE")){
             BoardBean bean = new BoardBean();
             
@@ -81,9 +92,12 @@ public class BoardServlet extends HttpServlet {
             bean.setImage(request.getParameter("image"));
             bean.setExplanation(request.getParameter("explanation"));
            
+            System.out.println("수정직전");
             BoardImpl bi = new BoardImpl();
             bi.bUpdate(bean);
+            System.out.println("수정햇음");
  
+            System.out.println("수정완료");
             response.setCharacterEncoding("EUC-KR");
             PrintWriter writer = response.getWriter();
             writer.println("<script type='text/javascript'>");

@@ -26,7 +26,7 @@
 		text-align: center;
 	}
 	table, th, td{
-		border: 1px solid #848484;
+		border: 1px solid #A4A4A4;
 	}
 	.no-border{
 		border: 0px;
