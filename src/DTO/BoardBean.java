@@ -1,6 +1,7 @@
-package boardBean;
+package DTO;
 
-public class Board implements java.io.Serializable{
+public class BoardBean {
+	private int idx;
 	private String title;
 	private String writer;
 	private String writeDate;
@@ -10,10 +11,14 @@ public class Board implements java.io.Serializable{
 	private String image;
 	private String explanation;
 	
-	public Board(){
-		
-	}
+	public BoardBean(){	}
 	
+	public int getIdx(){
+		return idx;
+	}
+	public void setIdx(int idx){
+		this.idx = idx;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -64,3 +69,4 @@ public class Board implements java.io.Serializable{
 	}
 	
 }
+
