@@ -13,7 +13,7 @@
 		margin-right: auto;
 	}
 	table, th, td{
-		border: 1px solid #848484;
+		border: 1px solid #A4A4A4;
 	}
 	.no-border{
 		border: 0px;
@@ -27,8 +27,8 @@
 	}
 	
 	.button{
-		width: 100px;
-		height: 30px;
-		font-size: 13pt;
+		width: 90px;
+		height: 35px;
+		font-size: 12pt;
 		font-family: 'Nanum Gothic', sans-serif;
 	}

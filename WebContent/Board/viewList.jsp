@@ -9,42 +9,9 @@
 <%@page import="DAO.BoardImpl" %>
 <%@page import="DTO.BoardBean" %>
 <%@include file="../top.jsp"%>
-<style type="text/css">
-	body {
-		font-family: 'Nanum Gothic', sans-serif;
-		font-size: 13pt;
-	}
-	h2 {
-		font-family: 'hanna', sans-serif;
-		text-align: center;
-	}
-	
-	table {
-		width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-		text-align: center;
-	}
-	table, th, td{
-		border: 1px solid #A4A4A4;
-	}
-	.no-border{
-		border: 0px;
-	}
-	
-	th {
-		height: 30px;
-		text-align: center;
-		background-color: #81DAF5;
-	}
-	
-	.button{
-		width: 100px;
-		height: 30px;
-		font-size: 13pt;
-		font-family: 'Nanum Gothic', sans-serif;
-	}
-</style>
+
+<link rel="stylesheet" type="text/css" href="/Wiki/CSS/viewListStyle.css">
+
 <title>글 목록</title>
 </head>
 <body>
@@ -54,9 +21,7 @@
 <tr> <th width="50">번호</th> <th width="400">제목</th> <th>작성자</th> <th>날짜</th> </tr>
 <%
 	BoardBean bean = new BoardBean();
-	//ArrayList list = (ArrayList)request.getAttribute("List");
-	BoardImpl bi = new BoardImpl();
-	ArrayList list = (ArrayList)bi.bList();
+	ArrayList list = (ArrayList)request.getAttribute("List");
 	
 	for(int i=0; i<list.size(); i++){
 		bean = (BoardBean)list.get(i);
@@ -66,6 +31,17 @@
 		<td><%=bean.getWriter()%></td><td><%=bean.getWriteDate()%></td></tr>
 	<%} %>
 </table>
+
+<form name="joinForm" method="post" action="/Wiki/Board/write.jsp">
+<table class="no-border">
+<tr class="no-border"><td class="no-border"colspan="5" height="20"></td></tr>
+<tr class="no-border"><td class="no-border"width="200"></td>
+		<td class="no-border"></td>
+		<td class="no-border"><input class="button" type="submit" value="글등록"></td>
+		<td class="no-border"></td>
+		<td class="no-border" width="200"></td></tr>
+</table>
+</form>
 
 </body>
 </html>

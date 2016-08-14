@@ -9,42 +9,7 @@
 <%@page import="DAO.BoardImpl" %>
 <%@page import="DTO.BoardBean" %>
 
-<style type="text/css">
-	body {
-		font-family: 'Nanum Gothic', sans-serif;
-		font-size: 13pt;
-	}
-	h2 {
-		font-family: 'hanna', sans-serif;
-		text-align: center;
-	}
-	
-	table {
-		width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	table, th, td{
-		border: 1px solid #CEECF5;
-	}
-	.no-border{
-		border: 0px;
-	}
-	
-	th {
-		width: 150px;
-		height: 30px;
-		text-align: center;
-		background-color: #81DAF5;
-	}
-	
-	.button{
-		width: 100px;
-		height: 30px;
-		font-size: 13pt;
-		font-family: 'Nanum Gothic', sans-serif;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="/Wiki/CSS/viewStyle.css">
 
 <title>±Û ¼öÁ¤</title>
 </head>

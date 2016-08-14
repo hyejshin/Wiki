@@ -169,6 +169,45 @@ public class BoardImpl implements Board{
         return res;
     }
     
+    public ArrayList<BoardBean> bSearch(String option, String keyword) {
+        ArrayList<BoardBean> list = new ArrayList<BoardBean>();
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        DBCon db = new DBCon();
+       
+        try {   
+            conn = db.connect();
+            String sql = "select idx, title, writer, writeDate, modifier, modifyDate, category, image, explanation ";
+            sql += "from board where " + option + " like ? order by idx";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,"%"+keyword+"%");
+            rs = pstmt.executeQuery();
+
+            while(rs.next()){               
+                // bean에 select된 값 넣기    
+                BoardBean bean = new BoardBean();
+                bean.setIdx(rs.getInt("idx"));
+                bean.setTitle(rs.getString("title"));
+                bean.setWriter(rs.getString("writer"));
+                bean.setWriteDate(rs.getString("writeDate"));
+                bean.setModifier(nvl(rs.getString("modifier")));
+                bean.setModifyDate(nvl(rs.getString("modifyDate")));
+                bean.setCategory(nvl(rs.getString("category")));
+                bean.setImage(rs.getString("image"));
+                bean.setExplanation(nvl(rs.getString("explanation")));
+                list.add(bean);
+            }   
+        } catch(SQLException se) {
+            se.printStackTrace();   
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close(rs, pstmt, conn);
+        }
+        return list;
+    }
+    
     public String nvl(String str){
     	if(str == null)
     		return "";

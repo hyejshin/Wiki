@@ -145,6 +145,23 @@ public class BoardServlet extends HttpServlet {
             request.setAttribute("List", list);
             
             RequestDispatcher rd = request.getRequestDispatcher("/Board/viewList.jsp");
+            rd.forward(request, response); 
+            
+        }  else if (actionMode.equals("SEARCH")){
+        	String option = request.getParameter("option");
+        	String keyword = request.getParameter("keyword");
+        	
+            BoardImpl bi = new BoardImpl();
+ 
+            if(option.equals("all")){
+	            ArrayList<BoardBean> list = bi.bList();
+	            request.setAttribute("List", list);
+            }else{
+            	ArrayList<BoardBean> list = bi.bSearch(option, keyword);
+	            request.setAttribute("List", list);
+            }
+            
+            RequestDispatcher rd = request.getRequestDispatcher("/Board/viewList.jsp");
             rd.forward(request, response);          
         }
 	}

@@ -8,9 +8,22 @@
 <link rel="stylesheet" type="text/css" 	href="http://fonts.googleapis.com/earlyaccess/hanna.css">
 <link rel="stylesheet" type="text/css" 	href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 
-<title>Insert title here</title>
+<title>Wiki</title>
+
+<style type="text/css">
+	#menu {
+		text-align: right;
+	}
+
+</style>
+
 </head>
 <body>
+
+<div id="menu">
+<a href="/Wiki/home.jsp">Home</a>
 login
+</div>
+
 </body>
 </html>
