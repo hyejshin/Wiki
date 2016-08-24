@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 
+<%@page import="com.member.db.MemberBean" %>
 <%@page import="DAO.BoardImpl" %>
 <%@page import="DTO.BoardBean" %>
 <%@page import="java.util.HashMap" %>
@@ -18,11 +19,11 @@
 <script language="javascript">
 function user(actionMode, idx){
 	if(actionMode == 'update'){
-		url = "/Wiki/BoardServlet?actionMode=UPDATEVIEW&idx="+idx;
+		url = "AuthorityCheck.do?option=update&idx="+idx;
 	}else if(actionMode == 'delete'){
-		url = "/Wiki/BoardServlet?actionMode=DELETE&idx="+idx;
+		url = "BoardDelete.do?idx="+idx;
 	}else if(actionMode == 'list'){
-		url = "/Wiki/BoardServlet?actionMode=LIST";
+		url = "BoardList.do";
 	}
 	document.joinForm.method = "post";
 	document.joinForm.action = url;
@@ -33,16 +34,29 @@ function user(actionMode, idx){
 <body>
 <h2>글 보기</h2>
 
-<% //BoardImpl bl = new BoardImpl();
+<% 
+
+//해당 글이 잘 보여지는지 테스트
+//BoardImpl bl = new BoardImpl();
 //BoardBean bean =  bl.bSelect(21);
-BoardBean bean = (BoardBean)request.getAttribute("Bean"); %>
+
+BoardBean bean = (BoardBean)request.getAttribute("Bean");
+
+//이미지가 저장된 경로
+String savePath = request.getServletContext().getRealPath("file_save");
+String image = savePath + "\\" + bean.getImage();
+ %>
 <table>
 <tr><th>글 제목</th><td colspan="3"><%=bean.getTitle()%></td></tr>
 <tr><th>등록자</th> <td width="230"><%=bean.getWriter()%></td> <th>등록일</th> <td><%=bean.getWriteDate()%></td></tr>
 <tr><th>수정자</th> <td width="230"><%=bean.getModifier()%></td> <th>최종수정일</th> <td><%=bean.getModifyDate()%></td></tr>
 <tr><th>카테고리</th><td colspan="3"><%=bean.getCategory()%></td></tr>
-<tr><td colspan="4"><div align="center"><img src="./"<%=bean.getImage()%> width="300" height="200"></div></td></tr>
-<tr><td colspan="4"><%=bean.getExplanation()%></td></tr>
+<% // 사진이 있을 경우에만 이미지 출력
+if (bean.getImage() != null){ %>
+<tr><td colspan="4"><div align="center">
+<img src='/Wiki/file_save/<%=bean.getImage()%>' width="300" height="200"></div></td></tr>
+<%} %>
+<tr><td colspan="4" height="200"><%=bean.getExplanation()%></td></tr>
 </table>
 
 <form name="joinForm" method="post">

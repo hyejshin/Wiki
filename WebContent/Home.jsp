@@ -25,7 +25,8 @@
 <div id="title">Wiki <img src="./file_save/ibm_watson.png" width="150"></div> 
 <br><br>
 
-<form method="post" action="/Wiki/BoardServlet?actionMode=SEARCH">
+<!-- 검색창  -->
+<form method="post" action="BoardSearch.do">
 <div>
 <select name="option">
 <option value="all">전체</option>
