@@ -29,7 +29,7 @@ public class JoinServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("EUC-KR");
 		
 		String user_name = request.getParameter("user_name");
 		String user_id   = request.getParameter("user_id");

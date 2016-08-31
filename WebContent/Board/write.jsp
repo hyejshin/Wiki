@@ -54,7 +54,7 @@ function check(){
 <form id="my_form" method="post" action="BoardInsert.do" 
 			enctype="multipart/form-data" onsubmit="return check();">
 <!-- 게시글 입력란 -->
-<input type="hidden" name="writerID" value="${loginUser.user_id}">
+<input type="hidden" name="writerEmail" value="${loginUser.user_email}">
 <table>
 <tr><th>글 제목</th><td colspan="3"><input type="text" name="title" size="90"></td></tr>
 <tr><th>작성자</th> <td><input type="text" name="writer" size="28" value="${loginUser.user_name}"></td>

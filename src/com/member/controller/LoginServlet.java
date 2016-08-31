@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		
 		if(session.getAttribute("loginUser") != null){ //이미 로그인 된 사용자
-			url="main.jsp";
+			url="home.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request,response);
@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 			MemberBean mb = mdao.getMember(user_id);
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", mb);
-			request.setAttribute("message", "회원가입 성공!");
+			//request.setAttribute("message", "회원가입 성공!");
 			url="home.jsp";
 		}else if(result == 0){
 			request.setAttribute("message", "비밀번호가 일치하지 않습니다!");

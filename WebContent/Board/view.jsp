@@ -51,12 +51,10 @@ String image = savePath + "\\" + bean.getImage();
 <tr><th>등록자</th> <td width="230"><%=bean.getWriter()%></td> <th>등록일</th> <td><%=bean.getWriteDate()%></td></tr>
 <tr><th>수정자</th> <td width="230"><%=bean.getModifier()%></td> <th>최종수정일</th> <td><%=bean.getModifyDate()%></td></tr>
 <tr><th>카테고리</th><td colspan="3"><%=bean.getCategory()%></td></tr>
+<tr><td colspan="4" height="200">
 <% // 사진이 있을 경우에만 이미지 출력
-if (bean.getImage() != null){ %>
-<tr><td colspan="4"><div align="center">
-<img src='/Wiki/file_save/<%=bean.getImage()%>' width="300" height="200"></div></td></tr>
-<%} %>
-<tr><td colspan="4" height="200"><%=bean.getExplanation()%></td></tr>
+if (bean.getImage() != null){ %><img src='/Wiki/file_save/<%=bean.getImage()%>' width="300" height="200">
+<%}%> <%=bean.getExplanation()%></td></tr>
 </table>
 
 <form name="joinForm" method="post">
